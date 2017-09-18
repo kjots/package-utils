@@ -1,0 +1,41 @@
+{
+  "name": "@kjots/package-utils",
+  "version": "1.0.0",
+  "description": "Utilities for Node packages",
+  "main": "index",
+  "scripts": {
+    "test": "gulp clean && gulp test",
+    "prepare": "gulp clean && gulp compile"
+  },
+  "homepage": "https://github.com/kjots/package-utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://kjots@github.com/kjots/package-utils.git"
+  },
+  "keywords": [
+    "package",
+    "utils"
+  ],
+  "author": "Karl Juri Ots <kjots@kjots.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kjots/package-utils/issues"
+  },
+  "engines": {
+    "node": ">=8.5.0",
+    "npm": ">=5.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-sourcemaps": "^2.6.1"
+  },
+  "peerDependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
