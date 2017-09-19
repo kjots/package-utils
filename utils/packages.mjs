@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import util from 'util';
 
-const existsAsync = util.promisify(fs.exists);
-
 import { getDirAsync, getDirSync, getParentDir } from './files';
+
+const [ existsAsync, readFileAsync ] = [ fs.exists, fs.readFile ].map(util.promisify);
 
 export async function isPackageDirAsync(dir) {
     return existsAsync(path.resolve(dir, 'package.json'));
@@ -32,4 +32,20 @@ export function getPackageDirSync(file) {
             return dir;
         }
     }
+}
+
+export async function getPackageJsonAsync(packageDir, encoding = 'utf8') {
+    packageDir = path.resolve(packageDir);
+
+    let packageJson = await readFileAsync(path.resolve(packageDir, 'package.json'), { encoding });
+
+    return JSON.parse(packageJson);
+}
+
+export function getPackageJsonSync(packageDir, encoding = 'utf8') {
+    packageDir = path.resolve(packageDir);
+
+    let packageJson = fs.readFileSync(path.resolve(packageDir, 'package.json'), { encoding });
+
+    return JSON.parse(packageJson);
 }
