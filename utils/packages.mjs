@@ -1,14 +1,17 @@
+import fs from 'fs';
 import path from 'path';
-import pathExists from 'path-exists';
+import util from 'util';
+
+const existsAsync = util.promisify(fs.exists);
 
 import { getDirAsync, getDirSync, getParentDir } from './files';
 
 export async function isPackageDirAsync(dir) {
-    return pathExists(path.resolve(dir, 'package.json'));
+    return existsAsync(path.resolve(dir, 'package.json'));
 }
 
 export function isPackageDirSync(dir) {
-    return pathExists.sync(path.resolve(dir, 'package.json'));
+    return fs.existsSync(path.resolve(dir, 'package.json'));
 }
 
 export async function getPackageDirAsync(file) {

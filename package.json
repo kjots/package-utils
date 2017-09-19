@@ -36,9 +36,6 @@
     "gulp-eslint": "^4.0.0",
     "gulp-sourcemaps": "^2.6.1"
   },
-  "dependencies": {
-    "path-exists": "^3.0.0"
-  },
   "peerDependencies": {
     "babel-polyfill": "^6.26.0"
   }
