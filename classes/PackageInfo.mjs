@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { getPackageDirSync as getPackageDir, isPackageDirSync as isPackageDir } from '../utils/packages';
+import { getPackageDirSync as getPackageDir, isPackageDirSync as isPackageDir, getPackageJsonSync as getPackageJson } from '../utils/packages';
 
 export default class PackageInfo {
     static forFile(file) {
@@ -16,6 +16,8 @@ export default class PackageInfo {
             throw new Error(`Not a package dir: ${ packageDir }`);
         }
 
-        Object.assign(this, { packageDir });
+        let packageJson = getPackageJson(packageDir);
+
+        Object.assign(this, { packageDir, packageJson });
     }
 }
