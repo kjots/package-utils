@@ -8,7 +8,7 @@ import gulpEslint from 'gulp-eslint';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import path from 'path';
 
-const srcFiles = [ 'index.mjs', 'utils/**/*.mjs' ]
+const srcFiles = [ 'index.mjs', 'classes/**/*.mjs', 'utils/**/*.mjs' ]
     .map(srcPattern => path.resolve(__dirname, srcPattern))
     .reduce((srcFiles, srcPattern) => srcFiles.concat(glob.sync(srcPattern)), []);
 

@@ -11,5 +11,7 @@
 /tmp/
 /index.js
 /index.js.map
+/classes/**/*.js
+/classes/**/*.js.map
 /utils/**/*.js
 /utils/**/*.js.map
