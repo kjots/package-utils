@@ -1,14 +1,16 @@
 import 'babel-polyfill';
 
 import del from 'del';
+import glob from 'glob';
 import gulp from 'gulp';
 import gulpBabel from 'gulp-babel';
 import gulpEslint from 'gulp-eslint';
 import gulpSourcemaps from 'gulp-sourcemaps';
 import path from 'path';
 
-const srcFiles = [ 'index.mjs' ]
-    .map(srcFile => path.resolve(__dirname, srcFile));
+const srcFiles = [ 'index.mjs', 'utils/**/*.mjs' ]
+    .map(srcPattern => path.resolve(__dirname, srcPattern))
+    .reduce((srcFiles, srcPattern) => srcFiles.concat(glob.sync(srcPattern)), []);
 
 gulp.task('test', [ 'test:eslint' ]);
 

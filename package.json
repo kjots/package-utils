@@ -30,10 +30,14 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "del": "^3.0.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-eslint": "^4.0.0",
     "gulp-sourcemaps": "^2.6.1"
+  },
+  "dependencies": {
+    "path-exists": "^3.0.0"
   },
   "peerDependencies": {
     "babel-polyfill": "^6.26.0"
