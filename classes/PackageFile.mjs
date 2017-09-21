@@ -2,6 +2,7 @@ import path from 'path';
 
 import PackageInfo from './PackageInfo';
 
+import { getDirSync as getDir } from '../utils/files';
 import { isLibraryFile } from '../utils/packages';
 
 export default class PackageFile {
@@ -24,7 +25,7 @@ export default class PackageFile {
         }
 
         let file = path.resolve(packageInfo.packageDir, packagePath);
-        let dir = packagePath !== '' ? path.dirname(file) : file;
+        let dir = getDir(file);
 
         Object.assign(this, { packageInfo, packagePath, file, dir });
     }
