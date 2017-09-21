@@ -34,6 +34,22 @@ export function getPackageDirSync(file) {
     }
 }
 
+export function isPackageFile(packageDir, file) {
+    packageDir = path.resolve(packageDir);
+    file = path.resolve(file);
+
+    return file.startsWith(packageDir + path.sep);
+}
+
+export function isLibraryFile(packageDir, file) {
+    packageDir = path.resolve(packageDir);
+    file = path.resolve(file);
+
+    let nodeModulesDir = path.resolve(packageDir, 'node_modules');
+
+    return file.startsWith(nodeModulesDir + path.sep);
+}
+
 export function getModuleRef(packageDir, file) {
     packageDir = path.resolve(packageDir);
     file = path.resolve(file);
