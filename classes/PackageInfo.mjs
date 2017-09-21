@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { getPackageDirSync as getPackageDir, isPackageDirSync as isPackageDir, getPackageJsonSync as getPackageJson } from '../utils/packages';
+import { getPackageDirSync as getPackageDir, isPackageDirSync as isPackageDir, getPackageJsonSync as getPackageJson, getModuleRef } from '../utils/packages';
 
 export default class PackageInfo {
     static forFile(file) {
@@ -19,5 +19,9 @@ export default class PackageInfo {
         let packageJson = getPackageJson(packageDir);
 
         Object.assign(this, { packageDir, packageJson });
+    }
+
+    moduleRef(file) {
+        return getModuleRef(this.packageDir, file);
     }
 }
