@@ -34,6 +34,26 @@ export function getPackageDirSync(file) {
     }
 }
 
+export function getModuleRef(packageDir, file) {
+    packageDir = path.resolve(packageDir);
+    file = path.resolve(file);
+
+    let nodeModulesDir = path.resolve(packageDir, 'node_modules');
+    let moduleRef;
+
+    if (file.startsWith(nodeModulesDir + path.sep)) {
+        moduleRef = path.relative(nodeModulesDir, file);
+    }
+    else if (file.startsWith(packageDir + path.sep)) {
+        moduleRef = `./${ path.relative(packageDir, file) }`;
+    }
+    else {
+        moduleRef = path.relative(packageDir, file);
+    }
+
+    return moduleRef.replace(/\\/g, '/');
+}
+
 export async function getPackageJsonAsync(packageDir, encoding = 'utf8') {
     packageDir = path.resolve(packageDir);
 
