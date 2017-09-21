@@ -1,3 +1,4 @@
+import PackageFile from './PackageFile';
 import PackageInfo from './PackageInfo';
 
-export { PackageInfo };
+export { PackageFile, PackageInfo };
