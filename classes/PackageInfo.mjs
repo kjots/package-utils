@@ -24,4 +24,14 @@ export default class PackageInfo {
     moduleRef(file) {
         return getModuleRef(this.packageDir, file);
     }
+
+    equals(that) {
+        return that instanceof PackageInfo &&
+            that.packageJson.name === this.packageJson.name;
+
+    }
+
+    toString() {
+        return `PackageInfo(${ this.packageDir })`;
+    }
 }
