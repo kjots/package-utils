@@ -25,5 +25,13 @@ module.exports = {
         'space-before-blocks': [ 'error', 'always' ],
         'strict': [ 'error', 'global' ],
         'yoda': [ 'error', 'never' ]
-    }
+    },
+    overrides: [
+        {
+            files: [ '**/*.spec.mjs' ],
+            env: {
+                mocha: true
+            }
+        }
+    ]
 };

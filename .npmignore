@@ -9,9 +9,14 @@
 /.npmignore
 /npm-debug.log
 
+/.nyc_output/
+/coverage/
 /tmp/
 /.babelrc
 /.eslintrc.js
 /.nvmrc
+/.nycrc
 /.travis.yml
 /gulpfile.babel.js
+
+/**/*.spec.mjs

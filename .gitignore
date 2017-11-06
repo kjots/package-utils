@@ -8,6 +8,8 @@
 /node_modules/
 /npm-debug.log
 
+/.nyc_output/
+/coverage/
 /tmp/
 /index.js
 /index.js.map
