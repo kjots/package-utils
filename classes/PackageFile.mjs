@@ -10,7 +10,7 @@ export default class PackageFile {
         file = path.resolve(file);
 
         let packageInfo = PackageInfo.forFile(file);
-        let packagePath = path.relative(packageInfo.packageDir, file);
+        let packagePath = path.relative(packageInfo.packageDir, file).replace(/\\/g, '/');
 
         return new PackageFile(packageInfo, packagePath);
     }
